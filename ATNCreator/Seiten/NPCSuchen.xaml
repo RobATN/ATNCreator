@@ -1,0 +1,72 @@
+﻿<Page x:Class="ATNCreator.Seiten.NPCSuchen"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ATNCreator.Seiten"
+      mc:Ignorable="d" 
+      d:DesignHeight="400" d:DesignWidth="600"
+      Title="NPCSuchen">
+    <Page.Resources>
+        <Style x:Key="LabelÜberschrift">
+            <Setter Property="Label.FontSize" Value="12px" />
+            <Setter Property="Label.Margin" Value="10,0,10,0"/>
+            <Setter Property="Label.VerticalAlignment" Value="Center" />
+        </Style>
+        <Style TargetType="RadioButton" >
+            <Setter Property="Margin" Value="10,5,10,5" />
+        </Style>
+        
+    </Page.Resources>
+    
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="30*" />
+            <ColumnDefinition Width="70*" />
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50*"/>
+                <RowDefinition Height="50*"/>
+            </Grid.RowDefinitions>
+            <GroupBox Header="NPC Suchen" Grid.Row="0">
+                <Grid Grid.Row="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="20*"/>
+                        <RowDefinition Height="20*"/>
+                        <RowDefinition Height="20*"/>
+                        <RowDefinition Height="20*"/>
+                        <RowDefinition Height="20*"/>
+                    </Grid.RowDefinitions>
+
+                    <Label Content="Name oder Entry ID" HorizontalAlignment="Left" Style="{StaticResource LabelÜberschrift}" Grid.Row="0"/>
+                    <TextBox x:Name="txtbxSuchen" VerticalAlignment="Center" HorizontalAlignment="Stretch"  Grid.Row="1" Margin="10,5,10,5" KeyDown="txtbxSuchen_KeyDown"/>
+                    <RadioButton Content="Nach Entry ID suchen" x:Name="chkbxEntryIDSuchen"  Grid.Row="2" Checked="chkbxEntryIDSuchen_Checked"/>
+                    <RadioButton Content="Nach Namen suchen" x:Name="chkbxNamenSuchen"  Grid.Row="3" Checked="chkbxNamenSuchen_Checked"/>
+                    <Button Content="Suchen" x:Name="btnNPCsuchen" VerticalAlignment="Center" HorizontalAlignment="Left" Margin=" 10,5,10,5" Width="65px" Grid.Row="4" Click="btnNPCsuchen_Click"/>
+                </Grid>
+            </GroupBox>
+            <GroupBox Header="Zuletzt aufgerufen" Grid.Row="1">
+                <Grid Grid.Row="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="80*"/>
+                        <RowDefinition Height="20*"/>
+                    </Grid.RowDefinitions>
+
+                    <ListBox x:Name="lstBxLastUsedNPCs" Grid.Row="0" Margin="10,5,10,5"/>
+                    <Button Content="NPC bearbeiten" x:Name="btnNPCBearbeiten" VerticalAlignment="Center" HorizontalAlignment="Left" Margin=" 10,5,10,5" Width="100px" Grid.Row="1" Click="btnNPCBearbeiten_Click"/>
+                </Grid>
+            </GroupBox>
+          </Grid>
+
+        <GroupBox Header="Ergebnisse" Grid.Column="1">
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="100*"/>
+                </Grid.RowDefinitions>
+                <ListBox x:Name="lstBxErgebnisse" Margin="10,10,10,10" MouseDoubleClick="lstBxErgebnisse_MouseDoubleClick" KeyDown="lstBxErgebnisse_KeyDown"/>
+            </Grid>
+        </GroupBox>
+    </Grid>
+</Page>

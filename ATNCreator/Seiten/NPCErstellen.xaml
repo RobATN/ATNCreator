@@ -1,0 +1,530 @@
+﻿<Page x:Class="ATNCreator.Seiten.NPCErstellen"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ATNCreator.Seiten"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="750"
+      Title="NPC">
+    <Page.Resources>
+        <Style x:Key="TextBoxModelRows">
+            <Setter Property="TextBox.VerticalAlignment" Value="Top"/>
+            <Setter Property="TextBox.HorizontalAlignment" Value="Left" />
+            <Setter Property="TextBox.Width" Value="100px" />
+            <Setter Property="TextBox.Margin" Value="10,0,0,0" />
+        </Style>
+        <Style x:Key="LabelNamesUpper">
+            <Setter Property="Label.FontSize" Value="15px" />
+            <Setter Property="Label.Margin" Value="20,-5,0,-5" />
+        </Style>
+        <Style x:Key="LabelModelRows">
+            <Setter Property="Label.FontSize" Value="11" />
+            <Setter Property="Label.VerticalContentAlignment" Value="Bottom"/>
+            <Setter Property="Label.HorizontalAlignment" Value="Left" />
+            <Setter Property="Label.Margin" Value="10, 0,0,0" />
+        </Style>
+        <Style x:Key="LabelModelItemsRows">
+            <Setter Property="Label.FontSize" Value="11" />
+            <Setter Property="Label.VerticalContentAlignment" Value="Bottom"/>
+            <Setter Property="Label.HorizontalAlignment" Value="Left" />
+            <Setter Property="Label.Margin" Value="10, 0,0,0" />
+        </Style>
+        <Style x:Key="LabelModelItemNamesRows">
+            <Setter Property="Label.FontSize" Value="11" />
+            <Setter Property="Label.VerticalContentAlignment" Value="Top"/>
+            <Setter Property="Label.HorizontalAlignment" Value="Left" />
+            <Setter Property="Label.Margin" Value="10, 0,0,0" />
+            <Setter Property="Label.FontStyle" Value="Italic" />
+        </Style>
+        <Style x:Key="ComboBoxModelRows">
+            <Setter Property="ComboBox.HorizontalAlignment" Value="Left" />
+            <Setter Property="ComboBox.VerticalAlignment" Value="Top"/>
+            <Setter Property="ComboBox.Width" Value="100px" />
+            <Setter Property="ComboBox.Margin" Value="10,0,0,0" />
+        </Style>
+        <Style x:Key="LabelEntryID">
+            <Setter Property="Label.VerticalContentAlignment" Value="Center"/>
+        </Style>
+        <Style x:Key="LabelInsideGroupBoxes">
+            <Setter Property="Label.VerticalContentAlignment" Value="Bottom"/>
+            <Setter Property="Label.HorizontalAlignment" Value="Left" />
+            <Setter Property="Label.Margin" Value="10,0,0,-4" />
+        </Style>
+        <Style TargetType="TextBox">
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="Width" Value="80px" />
+        </Style>
+        <Style TargetType="ComboBox">
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Width" Value="100px" />
+            <Setter Property="Margin" Value="15,0,0,0" />
+        </Style>
+        <Style TargetType="RadioButton">
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Margin" Value="25,0,0,0" />
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Width" Value="120px" />
+            <Setter Property="Height" Value="30px" />
+        </Style>
+    </Page.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="90*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50*"/>
+                <ColumnDefinition Width="50*"/>
+            </Grid.ColumnDefinitions>
+
+
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50*"/>
+                    <RowDefinition Height="50*"/>
+                </Grid.RowDefinitions>
+                <Label Content="Name" x:Name="lblNPCNameCurrent" Grid.Row="0" Style="{StaticResource LabelNamesUpper}" FontWeight="Bold" VerticalContentAlignment="Bottom"/>
+                <Label Content="SubName" x:Name="lblNPCSubNameCurrent" Grid.Row="1" Style="{StaticResource LabelNamesUpper}" FontWeight="Light" VerticalContentAlignment="Top"/>
+            </Grid>
+
+            <Grid Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="60*"/>
+                    <ColumnDefinition Width="40*"/>
+                </Grid.ColumnDefinitions>
+                <Label Content="Entry ID:" x:Name="lblEntryID" Grid.Column="0" Style="{StaticResource LabelEntryID}" FontWeight="Bold" HorizontalAlignment="Right"/>
+                <Label Content="0" x:Name="lblEntryIDCurrent" Grid.Column="1" Style="{StaticResource LabelEntryID}" FontWeight="Light" HorizontalAlignment="Left" />
+            </Grid>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <TabControl Grid.Row="1">
+                <TabItem Header="Basis Info">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="57*"/>
+                            <RowDefinition Height="35*"/>
+                            <RowDefinition Height="8*"/>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="35*" />
+                                <ColumnDefinition Width="25*" />
+                                <ColumnDefinition Width="20*" />
+                                <ColumnDefinition Width="20*" />
+                            </Grid.ColumnDefinitions>
+                            <GroupBox Header="Informationen" Grid.Column="0" >
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="16.6*" />
+                                        <RowDefinition Height="16.6*" />
+                                        <RowDefinition Height="16.6*" />
+                                        <RowDefinition Height="16.6*" />
+                                        <RowDefinition Height="16.6*" />
+                                        <RowDefinition Height="16.6*" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="50*" />
+                                        <ColumnDefinition Width="50*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label Content="Entry ID:" Grid.Column="0" Grid.Row="0" Style="{StaticResource LabelInsideGroupBoxes}"/>
+                                    <Label Content="Min. Level" Grid.Column="1" Grid.Row="0" Style="{StaticResource LabelInsideGroupBoxes}"/>
+                                    <Label Content="Name" Grid.Column="0" Grid.Row="2" Style="{StaticResource LabelInsideGroupBoxes}"/>
+                                    <Label Content="Max. Level" Grid.Column="1" Grid.Row="2" Style="{StaticResource LabelInsideGroupBoxes}"/>
+                                    <Label Content="SubName" Grid.Column="0" Grid.Row="4" Style="{StaticResource LabelInsideGroupBoxes}"/>
+                                    <Label Content="Fraktion" Grid.Column="1" Grid.Row="4" Style="{StaticResource LabelInsideGroupBoxes}"/>
+
+                                    <TextBox x:Name="txtBx_EntryID" Grid.Column="0" Grid.Row="1" Text="0" TextChanged="txtBx_EntryID_TextChanged" GotKeyboardFocus="txtBx_GotKeyboardFocus"/>
+                                    <TextBox x:Name="txtBx_Name" Grid.Column="0" Grid.Row="3" Text="Neuer" TextChanged="txtBx_Name_TextChanged" GotKeyboardFocus="txtBx_GotKeyboardFocus"/>
+                                    <TextBox x:Name="txtBx_SubName" Grid.Column="0" Grid.Row="5" Text="NPC" TextChanged="txtBx_SubName_TextChanged" GotKeyboardFocus="txtBx_GotKeyboardFocus"/>
+                                    <TextBox x:Name="txtBx_MinLevel" Grid.Column="1" Grid.Row="1" Text="1" GotKeyboardFocus="txtBx_GotKeyboardFocus"/>
+                                    <TextBox x:Name="txtBx_MaxLevel" Grid.Column="1" Grid.Row="3" Text="80" GotKeyboardFocus="txtBx_GotKeyboardFocus"/>
+                                    <TextBox x:Name="txtBx_Faction" Grid.Column="1" Grid.Row="5" Text="0" GotKeyboardFocus="txtBx_GotKeyboardFocus"/>
+                                </Grid>
+                            </GroupBox>
+                            <GroupBox Header="Klasse und Rang" Grid.Column="1" >
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="25*" />
+                                        <RowDefinition Height="25*" />
+                                        <RowDefinition Height="25*" />
+                                        <RowDefinition Height="25*" />
+                                    </Grid.RowDefinitions>
+                                    <Label Content="NPC Klasse" Grid.Row="0" Style="{StaticResource LabelInsideGroupBoxes}"/>
+                                    <Label Content="Rang" Grid.Row="2" Style="{StaticResource LabelInsideGroupBoxes}"/>
+                                    <ComboBox x:Name="cmbBx_Class" Grid.Row="1" SelectedIndex="0">
+                                        <ComboBoxItem Content="Krieger" />
+                                        <ComboBoxItem Content="Paladin" />
+                                        <ComboBoxItem Content="Schurke" />
+                                        <ComboBoxItem Content="Magier" />
+                                    </ComboBox>
+                                    <ComboBox x:Name="cmbBx_Rank" Grid.Row="3" SelectedIndex="0">
+                                        <ComboBoxItem Content="Normal" />
+                                        <ComboBoxItem Content="Elite" />
+                                        <ComboBoxItem Content="Rare Elite" />
+                                        <ComboBoxItem Content="Boss" />
+                                        <ComboBoxItem Content="Rare" />
+                                    </ComboBox>
+                                </Grid>
+                            </GroupBox>
+                            <GroupBox Header="Art / Rasse" Grid.Column="2" >
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="25*" />
+                                        <RowDefinition Height="25*" />
+                                        <RowDefinition Height="25*" />
+                                        <RowDefinition Height="25*" />
+                                    </Grid.RowDefinitions>
+                                    <Label Content="Typ" Grid.Row="0" Style="{StaticResource LabelInsideGroupBoxes}"/>
+                                    <Label Content="Tierart" Grid.Row="2" Style="{StaticResource LabelInsideGroupBoxes}"/>
+                                    <ComboBox x:Name="cmbBx_Type" Grid.Row="1" SelectedIndex="7" SelectionChanged="cmbBx_Type_SelectionChanged">
+                                        <ComboBoxItem Content="Kein Typ" />
+                                        <ComboBoxItem Content="Wildtier" />
+                                        <ComboBoxItem Content="Drachkin" />
+                                        <ComboBoxItem Content="Dämon" />
+                                        <ComboBoxItem Content="Elementar" />
+                                        <ComboBoxItem Content="Riese" />
+                                        <ComboBoxItem Content="Untot" />
+                                        <ComboBoxItem Content="Mensch" />
+                                        <ComboBoxItem Content="Tier(ohne Kampf)" />
+                                        <ComboBoxItem Content="Mechanisch" />
+                                        <ComboBoxItem Content="Nicht spezifiziert" />
+                                        <ComboBoxItem Content="Totem" />
+                                        <ComboBoxItem Content="Haustier" />
+                                        <ComboBoxItem Content="Gaswolke" />
+                                    </ComboBox>
+                                    <ComboBox x:Name="cmbBx_Family" Grid.Row="3" IsEnabled="False">
+                                        <ComboBoxItem Content="Wolf" />
+                                        <ComboBoxItem Content="Katze" />
+                                        <ComboBoxItem Content="Spinne" />
+                                        <ComboBoxItem Content="Bär" />
+                                        <ComboBoxItem Content="Schwein" />
+                                        <ComboBoxItem Content="Krokolisk" />
+                                        <ComboBoxItem Content="Geier" />
+                                        <ComboBoxItem Content="Krabbe" />
+                                        <ComboBoxItem Content="Gorilla" />
+                                        <ComboBoxItem Content="Raptor" />
+                                        <ComboBoxItem Content="Weitschreiten" />
+                                        <ComboBoxItem Content="Teufelsjäger" />
+                                        <ComboBoxItem Content="Leerwandler" />
+                                        <ComboBoxItem Content="Sukkubus" />
+                                        <ComboBoxItem Content="Verdamniswache" />
+                                        <ComboBoxItem Content="Scorpid" />
+                                        <ComboBoxItem Content="Schildkröte" />
+                                        <ComboBoxItem Content="Wichtel" />
+                                        <ComboBoxItem Content="Fledermaus" />
+                                        <ComboBoxItem Content="Hyäne" />
+                                        <ComboBoxItem Content="Eule" />
+                                        <ComboBoxItem Content="Windnatter" />
+                                        <ComboBoxItem Content="Fernbedienung" />
+                                        <ComboBoxItem Content="Teufelswache" />
+                                        <ComboBoxItem Content="Drachenfalke" />
+                                        <ComboBoxItem Content="Felshetzer" />
+                                        <ComboBoxItem Content="Warpschreiter" />
+                                        <ComboBoxItem Content="Sporensegler" />
+                                        <ComboBoxItem Content="Netherrochen" />
+                                        <ComboBoxItem Content="Schlange" />
+                                        <ComboBoxItem Content="Motte" />
+                                        <ComboBoxItem Content="Chimäre" />
+                                        <ComboBoxItem Content="Teufelssaurier" />
+                                        <ComboBoxItem Content="Guhl" />
+                                        <ComboBoxItem Content="Silithid" />
+                                        <ComboBoxItem Content="Wurm" />
+                                        <ComboBoxItem Content="Rhino" />
+                                        <ComboBoxItem Content="Wespe" />
+                                        <ComboBoxItem Content="Kernhund" />
+                                        <ComboBoxItem Content="Geisterbestie" />
+                                    </ComboBox>
+                                </Grid>
+                            </GroupBox>
+
+                            <GroupBox Header="Loot" Grid.Column="3" >
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="16.6*" />
+                                        <RowDefinition Height="16.6*" />
+                                        <RowDefinition Height="16.6*" />
+                                        <RowDefinition Height="16.6*" />
+                                        <RowDefinition Height="16.6*" />
+                                        <RowDefinition Height="16.6*" />
+                                    </Grid.RowDefinitions>
+                                    <Label Content="Gold Minimum" Grid.Row="0" Style="{StaticResource LabelInsideGroupBoxes}"/>
+                                    <Label Content="Gold Maximum" Grid.Row="2" Style="{StaticResource LabelInsideGroupBoxes}"/>
+                                    <CheckBox Content="Hat Loot ID:" x:Name="chkBx_LootID" Grid.Row="4"  HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
+                                    <TextBox x:Name="txtBx_minGold"  Grid.Row="1" GotKeyboardFocus="txtBx_GotKeyboardFocus"/>
+                                    <TextBox x:Name="txtBx_maxGold"  Grid.Row="3" GotKeyboardFocus="txtBx_GotKeyboardFocus"/>
+                                    <TextBox x:Name="txtBx_LootID"  Grid.Row="5" GotKeyboardFocus="txtBx_GotKeyboardFocus"/>
+                                </Grid>
+                            </GroupBox>
+                        </Grid>
+                        <Grid Grid.Row="1">
+                            <GroupBox Header="Sonstiges" Grid.Row="1">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="50*" />
+                                        <ColumnDefinition Width="50*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid Grid.Column="0">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="33*" />
+                                            <RowDefinition Height="33*" />
+                                            <RowDefinition Height="33*" />
+                                        </Grid.RowDefinitions>
+                                        <RadioButton Content="Steht still / Bewegt sich nur beim kämpfen" IsChecked="True" Grid.Row="0" x:Name="rdbtn_MoveIdle" Checked="rdbtn_MoveIdle_Checked"/>
+                                        <RadioButton Content="Rumlaufen innerhalb Spawnradius" Grid.Row="1" x:Name="rdbtn_MoveRand" Checked="rdbtn_MoveRand_Checked"/>
+                                        <RadioButton Content="Soll Wegpunkte benutzen" Grid.Row="2" x:Name="rdbtn_MoveWaypoints" Checked="rdbtn_MoveWaypoints_Checked"/>
+                                    </Grid>
+                                    <Grid Grid.Column="1">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="50*" />
+                                            <ColumnDefinition Width="50*" />
+                                        </Grid.ColumnDefinitions>
+                                        <Grid Grid.Column="0">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="33*" />
+                                                <RowDefinition Height="33*" />
+                                                <RowDefinition Height="33*" />
+                                            </Grid.RowDefinitions>
+                                            <CheckBox x:Name="chkBx_Boden" Content="Kann laufen" IsChecked="True" Grid.Row="0"/>
+                                            <CheckBox x:Name="chkBx_Wasser" Content="Kann schwimmen" IsChecked="True" Grid.Row="1"/>
+                                            <CheckBox x:Name="chkBx_Luft" Content="Kann fliegen" Grid.Row="2"/>
+                                        </Grid>
+                                        <Grid Grid.Column="1">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="50*" />
+                                                <RowDefinition Height="50*" />
+                                            </Grid.RowDefinitions>
+                                            <Button x:Name="btn_GenerateEntryID" Content="Entry ID Generieren" Grid.Row="0" Click="btn_GenerateEntryID_Click" />
+                                            <Button x:Name="btn_Speichern" Content="Speichern" Grid.Row="1" Click="btn_Speichern_Click" />
+                                        </Grid>
+                                    </Grid>
+                                </Grid>
+                            </GroupBox>
+                        </Grid>
+                    </Grid>
+                </TabItem>
+                <TabItem Header="Aussehen" Height="22" VerticalAlignment="Bottom">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="7*" />
+                            <RowDefinition Height="10*" />
+                            <RowDefinition Height="83*" />
+                        </Grid.RowDefinitions>
+
+                        <Grid Grid.Row="0">
+                            <CheckBox x:Name="chkBx_ImportModel" Content="Modell aus Modelviewer importieren" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="10,0,0,5" Checked="chkBx_ImportModel_Checked" Unchecked="chkBx_ImportModel_Unchecked"/>
+                        </Grid>
+                        
+                        <Grid Grid.Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="25*" />
+                                <ColumnDefinition Width="25*" />
+                                <ColumnDefinition Width="50*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid Grid.Column="0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="50*" />
+                                    <RowDefinition Height="50*" />
+                                </Grid.RowDefinitions>
+                                <Label Content="Größe" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10,0,0,0" Grid.Row="0"/>
+                                <ComboBox x:Name="cmbBx_Scale" Width="100px" Grid.Row="1" HorizontalAlignment="Left" Margin="10,0,0,0" SelectedIndex="0">
+                                    <ComboBoxItem Content="1,0" />
+                                    <ComboBoxItem Content="1,25" />
+                                    <ComboBoxItem Content="1,5" />
+                                    <ComboBoxItem Content="1,75" />
+                                    <ComboBoxItem Content="2,0" />
+                                </ComboBox>
+                            </Grid>
+
+                            <Grid Grid.Column="1">
+                                <Button x:Name="btn_ImportModel" Content="Importieren" VerticalAlignment="Bottom" HorizontalAlignment="Center" />
+                            </Grid>
+
+                            <Grid Grid.Column="2">
+                                <TextBox x:Name="txtbx_ImportModel" VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="230px" Margin="0,0,0,5"/>
+                            </Grid>
+                        </Grid>
+                        <Grid Grid.Row="2">
+                            <GroupBox Grid.Row="2" x:Name="grpBx_Model" Header="Model">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="12.5*" />
+                                        <RowDefinition Height="12.5*" />
+                                        <RowDefinition Height="12.5*" />
+                                        <RowDefinition Height="12.5*" />
+                                        <RowDefinition Height="12.5*" />
+                                        <RowDefinition Height="12.5*" />
+                                        <RowDefinition Height="12.5*" />
+                                        <RowDefinition Height="12.5*" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="20*" />
+                                        <ColumnDefinition Width="70*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label Content="Model ID 1" Grid.Row="0" Grid.Column="0" Style="{StaticResource LabelModelRows}" />
+                                    <TextBox x:Name="txtBx_ModelId1" Grid.Row="1" Grid.Column="0" Style="{StaticResource TextBoxModelRows}" />
+                                    <Label Content="Model ID 2" Grid.Row="2" Grid.Column="0" Style="{StaticResource LabelModelRows}" />
+                                    <TextBox x:Name="txtBx_ModelId2" Grid.Row="3" Grid.Column="0" Style="{StaticResource TextBoxModelRows}" />
+                                    <Label Content="Model ID 3" Grid.Row="4" Grid.Column="0" Style="{StaticResource LabelModelRows}" />
+                                    <TextBox x:Name="txtBx_ModelId3" Grid.Row="5" Grid.Column="0" Style="{StaticResource TextBoxModelRows}" />
+                                    <Label Content="Model ID 4" Grid.Row="6" Grid.Column="0" Style="{StaticResource LabelModelRows}" />
+                                    <TextBox x:Name="txtBx_ModelId4" Grid.Row="7" Grid.Column="0" Style="{StaticResource TextBoxModelRows}" />
+                                </Grid>
+                            </GroupBox>
+                            <GroupBox Grid.Row="2" x:Name="grpBx_ImportModel" Header="Model Daten" Visibility="Hidden">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="20*" />
+                                        <ColumnDefinition Width="80*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid Grid.Column="0">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="6*"/>
+                                            <RowDefinition Height="8*"/>
+                                            <RowDefinition Height="6*"/>
+                                            <RowDefinition Height="7*"/>
+                                            <RowDefinition Height="6*"/>
+                                            <RowDefinition Height="8*"/>
+                                            <RowDefinition Height="6*"/>
+                                            <RowDefinition Height="8*"/>
+                                            <RowDefinition Height="6*"/>
+                                            <RowDefinition Height="8*"/>
+                                            <RowDefinition Height="6*"/>
+                                            <RowDefinition Height="8*"/>
+                                            <RowDefinition Height="6*"/>
+                                            <RowDefinition Height="8*"/>
+                                        </Grid.RowDefinitions>
+                                        <Label Content="Volk" Grid.Row="0" Style="{StaticResource LabelModelRows}"/>
+                                        <ComboBox x:Name="cmbBx_Volk" Grid.Row="1" Style="{StaticResource ComboBoxModelRows}"> 
+                                        </ComboBox>
+                                        <Label Content="Geschlecht" Grid.Row="2" Style="{StaticResource LabelModelRows}"/>
+                                        <ComboBox x:Name="cmbBx_Geschlecht" Grid.Row="3" Style="{StaticResource ComboBoxModelRows}">
+                                            <ComboBoxItem Content="Männlich"/>
+                                            <ComboBoxItem Content="Weiblich"/>
+                                        </ComboBox>
+                                        <Label Content="Haut Textur" Grid.Row="4" Style="{StaticResource LabelModelRows}"/>
+                                        <TextBox x:Name="txtBx_ModelTextur" Grid.Row="5" Style="{StaticResource TextBoxModelRows}"/>
+                                        <Label Content="Gesicht" Grid.Row="6" Style="{StaticResource LabelModelRows}"/>
+                                        <TextBox x:Name="txtBx_ModelGesicht" Grid.Row="7" Style="{StaticResource TextBoxModelRows}"/>
+                                        <Label Content="Haare" Grid.Row="8" Style="{StaticResource LabelModelRows}"/>
+                                        <TextBox x:Name="txtBx_ModelHaare" Grid.Row="9" Style="{StaticResource TextBoxModelRows}"/>
+                                        <Label Content="Haarfarbe" Grid.Row="10" Style="{StaticResource LabelModelRows}"/>
+                                        <TextBox x:Name="txtBx_ModelHaarfarbe" Grid.Row="11" Style="{StaticResource TextBoxModelRows}"/>
+                                        <Label Content="Extras" Grid.Row="12" Style="{StaticResource LabelModelRows}"/>
+                                        <TextBox x:Name="txtBx_ModelExtras" Grid.Row="13" Style="{StaticResource TextBoxModelRows}"/>
+                                    </Grid>
+                                    <Grid Grid.Column="1">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="50*" />
+                                            <ColumnDefinition Width="50*" />
+                                        </Grid.ColumnDefinitions>
+                                        <Grid Grid.Column="0">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="6*"/>
+                                                <RowDefinition Height="8*"/>
+                                                <RowDefinition Height="6*"/>
+                                                <RowDefinition Height="7*"/>
+                                                <RowDefinition Height="6*"/>
+                                                <RowDefinition Height="8*"/>
+                                                <RowDefinition Height="6*"/>
+                                                <RowDefinition Height="8*"/>
+                                                <RowDefinition Height="6*"/>
+                                                <RowDefinition Height="8*"/>
+                                                <RowDefinition Height="6*"/>
+                                                <RowDefinition Height="8*"/>
+                                                <RowDefinition Height="6*"/>
+                                                <RowDefinition Height="8*"/>
+                                            </Grid.RowDefinitions>
+                                            <Label Content="Kopf" Grid.Row="0" Style="{StaticResource LabelModelItemsRows}"/>
+                                            <Label Content="nicht vorhanden" Grid.Row="1" Style="{StaticResource LabelModelItemNamesRows}"/>
+                                            <Label Content="Rücken" Grid.Row="2" Style="{StaticResource LabelModelItemsRows}"/>
+                                            <Label Content="nicht vorhanden" Grid.Row="3" Style="{StaticResource LabelModelItemNamesRows}"/>
+                                            <Label Content="Schulter" Grid.Row="4" Style="{StaticResource LabelModelItemsRows}"/>
+                                            <Label Content="nicht vorhanden" Grid.Row="5" Style="{StaticResource LabelModelItemNamesRows}"/>
+                                            <Label Content="Brust" Grid.Row="6" Style="{StaticResource LabelModelItemsRows}"/>
+                                            <Label Content="nicht vorhanden" Grid.Row="7" Style="{StaticResource LabelModelItemNamesRows}"/>
+                                            <Label Content="Hemd" Grid.Row="8" Style="{StaticResource LabelModelItemsRows}"/>
+                                            <Label Content="nicht vorhanden" Grid.Row="9" Style="{StaticResource LabelModelItemNamesRows}"/>
+                                            <Label Content="Wappenrock" Grid.Row="10" Style="{StaticResource LabelModelItemsRows}"/>
+                                            <Label Content="nicht vorhanden" Grid.Row="11" Style="{StaticResource LabelModelItemNamesRows}"/>
+                                            <Label Content="Armschienen" Grid.Row="12" Style="{StaticResource LabelModelItemsRows}"/>
+                                            <Label Content="nicht vorhanden" Grid.Row="13" Style="{StaticResource LabelModelItemNamesRows}"/>
+                                        </Grid>
+                                        <Grid Grid.Column="1">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="6*"/>
+                                                <RowDefinition Height="8*"/>
+                                                <RowDefinition Height="6*"/>
+                                                <RowDefinition Height="7*"/>
+                                                <RowDefinition Height="6*"/>
+                                                <RowDefinition Height="8*"/>
+                                                <RowDefinition Height="6*"/>
+                                                <RowDefinition Height="8*"/>
+                                                <RowDefinition Height="6*"/>
+                                                <RowDefinition Height="8*"/>
+                                                <RowDefinition Height="6*"/>
+                                                <RowDefinition Height="8*"/>
+                                                <RowDefinition Height="6*"/>
+                                                <RowDefinition Height="8*"/>
+                                            </Grid.RowDefinitions>
+                                            <Label Content="Hände" Grid.Row="0" Style="{StaticResource LabelModelItemsRows}"/>
+                                            <Label Content="nicht vorhanden" Grid.Row="1" Style="{StaticResource LabelModelItemNamesRows}"/>
+                                            <Label Content="Gürtel" Grid.Row="2" Style="{StaticResource LabelModelItemsRows}"/>
+                                            <Label Content="nicht vorhanden" Grid.Row="3" Style="{StaticResource LabelModelItemNamesRows}"/>
+                                            <Label Content="Beine" Grid.Row="4" Style="{StaticResource LabelModelItemsRows}"/>
+                                            <Label Content="nicht vorhanden" Grid.Row="5" Style="{StaticResource LabelModelItemNamesRows}"/>
+                                            <Label Content="Stiefel" Grid.Row="6" Style="{StaticResource LabelModelItemsRows}"/>
+                                            <Label Content="nicht vorhanden" Grid.Row="7" Style="{StaticResource LabelModelItemNamesRows}"/>
+                                            <Label Content="Haupthand" Grid.Row="8" Style="{StaticResource LabelModelItemsRows}"/>
+                                            <Label Content="nicht vorhanden" Grid.Row="9" Style="{StaticResource LabelModelItemNamesRows}"/>
+                                            <Label Content="Nebenhand" Grid.Row="10" Style="{StaticResource LabelModelItemsRows}"/>
+                                            <Label Content="nicht vorhanden" Grid.Row="11" Style="{StaticResource LabelModelItemNamesRows}"/>
+                                            <Label Content="Distanzwaffe" Grid.Row="12" Style="{StaticResource LabelModelItemsRows}"/>
+                                            <Label Content="nicht vorhanden" Grid.Row="13" Style="{StaticResource LabelModelItemNamesRows}"/>
+                                        </Grid>
+                                    </Grid>
+                                </Grid>
+                            </GroupBox>
+                        </Grid>
+                    </Grid>
+                </TabItem>
+
+                <TabItem Header="Flags">
+
+                </TabItem>
+
+                <TabItem Header="Loot">
+
+                </TabItem>
+
+                <TabItem Header="Kampf/Schaden">
+
+                </TabItem>
+
+                <TabItem Header="Händler">
+
+                </TabItem>
+                <TabItem Header="Lehrer">
+
+                </TabItem>
+                <TabItem Header="Quests">
+
+                </TabItem>
+                <TabItem Header="Erweitert">
+
+                </TabItem>
+            </TabControl>
+        </Grid>
+
+
+    </Grid>
+</Page>

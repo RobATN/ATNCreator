@@ -1,0 +1,44 @@
+﻿<Window x:Class="ATNCreator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ATNCreator"
+        mc:Ignorable="d"
+        Title="ATNCreator" Height="300" Width="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20px" />
+            <RowDefinition Height="99*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Menu Visibility="Hidden" x:Name="menu">
+                <MenuItem Header="Menü">
+                    <MenuItem Header="Beenden" Name="btnBeenden" Click="btnBeenden_Click"/>
+                </MenuItem>
+                <MenuItem Header="Erstellen">
+                    <MenuItem Header="NPC">
+                        <MenuItem Header="NPC suchen" Name="btnNPCSuchen" Click="btnNPCSuchen_Click"/>
+                        <MenuItem Header="NPC erstellen" Name="btnNPCErstellen" Click="btnNPCErstellen_Click"/>
+                    </MenuItem>
+                    <MenuItem Header="Item" Name="btnItemErstellen" Click="btnItemErstellen_Click"/>
+                    <MenuItem Header="Quest" Name="btnQuestErstellen" Click="btnQuestErstellen_Click"/>
+                    <MenuItem Header="Gameobject" Name="btnGameobjectErstellen" Click="btnGameobjectErstellen_Click"/>
+                </MenuItem>
+                <MenuItem Header="Server Tools">
+                    <MenuItem Header="Accounts" Name="btnAccountTools" Click="btnAccountTools_Click"/>
+                    <MenuItem Header="Statistiken" Name="btnStatistiken" Click="btnStatistiken_Click"/>
+                </MenuItem>
+                <MenuItem Header="Hilfe">
+                    <MenuItem Header="Info Über ATNCreator" Name="btnÜber" Click="btnÜber_Click"/>
+                </MenuItem>
+            </Menu>
+        </Grid>
+        <Grid Grid.Row="1">
+
+            <Frame x:Name="ContentArea" NavigationUIVisibility="Hidden" />
+        </Grid>
+    </Grid>
+
+</Window>

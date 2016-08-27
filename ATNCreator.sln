@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ATNCreator", "ATNCreator\ATNCreator.csproj", "{F77E76DB-B4E8-48A2-BCA8-F4BA503DBBB4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{9401E15B-8AD4-4F79-A4DF-A1FA1361FE18}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F77E76DB-B4E8-48A2-BCA8-F4BA503DBBB4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F77E76DB-B4E8-48A2-BCA8-F4BA503DBBB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F77E76DB-B4E8-48A2-BCA8-F4BA503DBBB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F77E76DB-B4E8-48A2-BCA8-F4BA503DBBB4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9401E15B-8AD4-4F79-A4DF-A1FA1361FE18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9401E15B-8AD4-4F79-A4DF-A1FA1361FE18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9401E15B-8AD4-4F79-A4DF-A1FA1361FE18}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9401E15B-8AD4-4F79-A4DF-A1FA1361FE18}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
