@@ -49,9 +49,9 @@
             <Label Content="Benutzername" Grid.Row="0" />
             <Label Content="Passwort" Grid.Row="2"/>
             <Label Content="Server" Grid.Row="4"/>
-            <TextBox Name="txt_user" Grid.Row="1" Style="{StaticResource TextBox}"/>
-            <PasswordBox Name="txt_password" Grid.Row="3" Style="{StaticResource TextBox}"/>
-            <TextBox Name="txt_server" Grid.Row="5" Style="{StaticResource TextBox}"/>
+            <TextBox Name="txtBx_user" Grid.Row="1" Style="{StaticResource TextBox}"/>
+            <PasswordBox Name="txtBx_password" Grid.Row="3" Style="{StaticResource TextBox}"/>
+            <TextBox Name="txtBx_server" Grid.Row="5" Style="{StaticResource TextBox}"/>
         </Grid>
 
         <Grid Grid.Row="2">

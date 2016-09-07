@@ -36,26 +36,33 @@ namespace ATNCreator.Seiten
 
         private void CheckSettings()
         {
+            //Erstmal schauen ob die settings.dat schon existiert
             if (File.Exists("settings.dat"))
             {
+                //Tut sie! Dann mal in die SettingsClass laden
                 Settings s = Settings.SettingsLaden("settings.dat");
-                txt_user.Text = s.User;
-                txt_password.Password = s.Password;
-                txt_server.Text = s.Server;
+
+                //Füllen der Textboxen mit den Infos aus den Settings
+                txtBx_user.Text = s.User;
+                txtBx_password.Password = s.Password;
+                txtBx_server.Text = s.Server;
             }
         }
 
         private void btn_login_Click(object sender, RoutedEventArgs e)
         {
-            if (Database.TryLogin(txt_user.Text, txt_password.Password, txt_server.Text, "world") == true)
+            //Login Versuchen
+            if (Database.TryLogin(txtBx_user.Text, txtBx_password.Password, txtBx_server.Text, "world") == true)
             {
-                Settings setting = new Settings(txt_user.Text, txt_password.Password, txt_server.Text, "world");
+                //Klappt, also den eingegeben Scheiß fein in die settings.dat speichern
+                Settings setting = new Settings(txtBx_user.Text, txtBx_password.Password, txtBx_server.Text, "world");
                 Settings.SettingsSpeichern(setting, "settings.dat");
 
+                //Und ab ins Hauptmenü
                 Seiten.Hauptmenü seite = new Seiten.Hauptmenü();
 
+                //Der Delegat NAVLOGIN befördert die Hauptmenü Seite ins MainWindow
                 login(seite);
-
             }
             else
             {
